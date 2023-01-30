@@ -9,7 +9,7 @@ include('db_connect.php');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title><?php echo $_SESSION['system']['name'] ?></title>
+  <title>RMS</title>
  	
 
 <?php include('./header.php'); ?>
@@ -48,7 +48,7 @@ header("location:index.php?page=home");
 		background:#22027b;
 		display: flex;
 		align-items: center;
-		background: url(assets/uploads/house4.jpg);
+		background: url(assets/uploads/background.jpg);
 	    background-repeat: no-repeat;
 	    background-size: cover;
 	}
@@ -72,7 +72,7 @@ div#login-right::before {
     left: 0;
     width: calc(100%);
     height: calc(100%);
-    /*background: #f0d0a0;
+    /* /*background: #f0d0a0; */
 }
 
 </style>
@@ -88,6 +88,7 @@ div#login-right::before {
   			<div class="w-100">
 			<h4 class="text-red text-center"><b><?php //echo $_SESSION['system']['name'] ?></b></h4>
 			<br>
+			<h1 class="text-center"><b>Login</b></h1>
 			<br>
   			<div class="card col-md-8">
   				<div class="card-body">
