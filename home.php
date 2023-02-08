@@ -35,7 +35,14 @@
 		max-width: calc(100%)!important;
 	}
 </style>
-
+<?php $result = $conn->query("SELECT * FROM house_category");
+        $i=0;
+        while($row = $result->fetch_assoc()){
+            $houses[$i]['house_no'] = $row['house_no'];
+            $houses[$i]['address'] = $row['address'];
+            $i++;
+        }
+?>
 <div class="containe-fluid">
 	<div class="row mt-3 ml-3 mr-3">
         <div class="col-lg-12">
@@ -44,15 +51,16 @@
                     <?php echo "Welcome back ". $_SESSION['login_name']."!"  ?>
                     <hr>
                     <div class="row">
+                    <?php foreach($houses as $h){ ?>
                         <div class="col-md-4 mb-3">
-                            <div class="card border-primary">
-                                <div class="card-body bg-primary">
+                            <div class="card border-warning">
+                                <div class="card-body bg-warning">
                                     <div class="card-body text-white">
                                         <span class="float-right summary_icon"> <i class="fa fa-home "></i></span>
                                         <h4><b>
-                                            <?php echo $conn->query("SELECT * FROM houses")->num_rows ?>
+                                        <?php echo $h['house_no']; ?>
                                         </b></h4>
-                                        <p><b>Total Houses</b></p>
+                                        <p><b><?php echo $h['address']; ?></b></p>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -64,49 +72,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="card border-warning">
-                                <div class="card-body bg-warning">
-                                    <div class="card-body text-white">
-                                        <span class="float-right summary_icon"> <i class="fa fa-user-friends "></i></span>
-                                        <h4><b>
-                                            <?php echo $conn->query("SELECT * FROM tenants where status = 1 ")->num_rows ?>
-                                        </b></h4>
-                                        <p><b>Total Tenants</b></p>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <a href="index.php?page=tenants" class="text-primary float-right">View List <span class="fa fa-angle-right"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="card border-success">
-                                <div class="card-body bg-success">
-                                    <div class="card-body text-white">
-                                        <span class="float-right summary_icon"> <i class="fa fa-file-invoice "></i></span>
-                                        <h4><b>
-                                            <?php 
-                                             $payment = $conn->query("SELECT sum(amount) as paid FROM payments where date(date_created) = '".date('Y-m-d')."' "); 
-                                             echo $payment->num_rows > 0 ? number_format($payment->fetch_array()['paid'],2) : 0;
-                                             ?>
-                                        </b></h4>
-                                        <p><b>Payments This Month</b></p>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <a href="index.php?page=invoices" class="text-primary float-right">View Payments <span class="fa fa-angle-right"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
 
                     

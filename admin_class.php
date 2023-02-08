@@ -225,11 +225,11 @@ Class Action {
 	
 	function save_category(){
 		extract($_POST);
-		$data = " name = '$name' ";
+		$data = " house_no = '$name' ";
 			if(empty($id)){
-				$save = $this->db->query("INSERT INTO categories set $data");
+				$save = $this->db->query("INSERT INTO home_category set $data");
 			}else{
-				$save = $this->db->query("UPDATE categories set $data where id = $id");
+				$save = $this->db->query("UPDATE home_category set $data where sno = $id");
 			}
 		if($save)
 			return 1;

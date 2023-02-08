@@ -50,17 +50,17 @@
 							<tbody>
 								<?php 
 								$i = 1;
-								$category = $conn->query("SELECT * FROM categories order by id asc");
+								$category = $conn->query("SELECT * FROM house_category order by house_no asc");
 								while($row=$category->fetch_assoc()):
 								?>
 								<tr>
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td class="">
-										<p><b><?php echo $row['name'] ?></b></p>
+										<p><b><?php echo $row['house_no']." [".$row['address']."]" ?></b></p>
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-primary edit_category" type="button" data-id="<?php echo $row['id'] ?>"  data-name="<?php echo $row['name'] ?>" >Edit</button>
-										<button class="btn btn-sm btn-danger delete_category" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
+										<button class="btn btn-sm btn-primary edit_category" type="button" data-id="<?php echo $row['sno'] ?>"  data-name="<?php echo $row['house_no'] ?>" >Edit</button>
+										<button class="btn btn-sm btn-danger delete_category" type="button" data-id="<?php echo $row['sno'] ?>">Delete</button>
 									</td>
 								</tr>
 								<?php endwhile; ?>
