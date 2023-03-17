@@ -1,4 +1,5 @@
 <?php include 'db_connect.php' ?>
+
 <style>
 	.on-print{
 		display: none;
