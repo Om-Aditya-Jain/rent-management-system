@@ -2,10 +2,10 @@ Rent-Management-System is a Web application that offers a complete solution for 
 
 This project involves the following modules - 
 
- * Rental agreement
- * Police verification
- * Calculation of rent with other expenses
- * Rent payments or transactions
- * Invoice Generation
- * Monthly and yearly rent collection report generation
- * Outstanding amount evaluation
+ * Rental Agreement Module
+ * Police Verification Module
+ * Rent Calculation Module (including all expenses)
+ * Rental Payments or Transactions Module
+ * Invoice Generation Module
+ * Monthly and Yearly Report Module
+ * Outstanding Amount Evaluation and Reporting Module
